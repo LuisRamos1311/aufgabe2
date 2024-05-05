@@ -13,6 +13,7 @@ public class BurgerBuilder {
 
     public Burger buildPrecomputed() {
         // TODO hier stattdessen die neue Klasse PrecomputedBurger verwenden
+
         return new DummyBurgerImpl();
     }
 
