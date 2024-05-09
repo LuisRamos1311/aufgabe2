@@ -7,7 +7,7 @@ public class PrecomputedBurger implements Burger {
 
     private double price;
     private int calories;
-    private List<String> ingredientNameList;
+    private List<String> ingredientNameList = new ArrayList<>();
 
     public PrecomputedBurger(List<Ingredient> ingredientList) {
         for (Ingredient ingredient : ingredientList) {
@@ -26,7 +26,7 @@ public class PrecomputedBurger implements Burger {
 
     @Override
     public int calculateCalories() {
-        return calories;
+        return this.calories;
     }
 
     @Override

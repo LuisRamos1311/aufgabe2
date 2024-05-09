@@ -15,7 +15,7 @@ public class DynamicallyComputedBurger implements Burger {
     public double calculatePrice() {
         double price = 0;
         for (Ingredient ingredient : ingredientList) {
-            price += (int) ingredient.getPrice();
+            price += ingredient.getPrice();
         }
         return price;
     }
@@ -24,7 +24,7 @@ public class DynamicallyComputedBurger implements Burger {
     public int calculateCalories() {
         int calories = 0;
         for (Ingredient ingredient : ingredientList) {
-            calories += (int) ingredient.getPrice();
+            calories += ingredient.getCalories();
         }
         return calories;    }
 
