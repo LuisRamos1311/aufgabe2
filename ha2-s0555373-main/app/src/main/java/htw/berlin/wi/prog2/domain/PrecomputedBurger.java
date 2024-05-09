@@ -5,15 +5,15 @@ import java.util.List;
 
 public class PrecomputedBurger implements Burger {
 
-    private List<Ingredient> ingredients;
     private double price;
     private int calories;
+    private List<String> ingredientNameList;
 
-    public PrecomputedBurger(List<Ingredient> ingredients) {
-        this.ingredients = ingredients;
-        for (Ingredient ingredient : ingredients) {
+    public PrecomputedBurger(List<Ingredient> ingredientList) {
+        for (Ingredient ingredient : ingredientList) {
         this.price += ingredient.getPrice();
         this.calories += ingredient.getCalories();
+        this.ingredientNameList.add(ingredient.getName());
         };
 
 
@@ -21,7 +21,7 @@ public class PrecomputedBurger implements Burger {
 
     @Override
     public double calculatePrice() {
-        return price;
+        return this.price;
     }
 
     @Override
@@ -31,11 +31,6 @@ public class PrecomputedBurger implements Burger {
 
     @Override
     public List<String> getIngredientNames() {
-        List<String> ingredientNames = new ArrayList<String>();
-
-        for (Ingredient ingredient : ingredients) {
-            ingredientNames.add(ingredient.getName());
-        }
-        return ingredientNames;
+        return this.ingredientNameList;
     }
 }
