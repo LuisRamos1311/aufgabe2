@@ -17,6 +17,11 @@ public class BurgerBuilder {
 
     public Burger buildPrecomputed() {
         // TODO hier stattdessen die neue Klasse PrecomputedBurger verwenden
+
+        if (ingredientList.size() <= 1) {
+            throw new IllegalBurgerException("You need at least two ingredients");
+        }
+
         List<Ingredient> ingredientList2 = new ArrayList<>(ingredientList);
         PrecomputedBurger precomputedBurger = new PrecomputedBurger(ingredientList2);
         ingredientList.clear();
@@ -25,6 +30,11 @@ public class BurgerBuilder {
 
     public Burger buildDynamicallyComputed() {
         // TODO hier stattdessen die neue Klasse DynamicallyComputedBurger verwenden
+
+        if (ingredientList.size() <= 1) {
+            throw new IllegalBurgerException("You need at least ingredients");
+        }
+
         List<Ingredient> ingredientList2 = new ArrayList<>(ingredientList);
         DynamicallyComputedBurger dynamicallyComputedBurger = new DynamicallyComputedBurger(ingredientList2);
         ingredientList.clear();
