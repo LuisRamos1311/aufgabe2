@@ -1,23 +1,39 @@
 package htw.berlin.wi.prog2.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DynamicallyComputedBurger implements Burger {
 
-    List<Ingredient> ingredients;
+    List<Ingredient> ingredientList;
+
+    public DynamicallyComputedBurger(List<Ingredient> ingredientList) {
+        this.ingredientList = ingredientList;
+        };
 
     @Override
     public double calculatePrice() {
-        return 0.01;
+        double price = 0;
+        for (Ingredient ingredient : ingredientList) {
+            price += (int) ingredient.getPrice();
+        }
+        return price;
     }
 
     @Override
     public int calculateCalories() {
-        return 10000;
-    }
+        int calories = 0;
+        for (Ingredient ingredient : ingredientList) {
+            calories += (int) ingredient.getPrice();
+        }
+        return calories;    }
 
     @Override
     public List<String> getIngredientNames() {
-        return List.of("Käse", "Käse", "Käse");
-    }
+        List<String> ingredientNameList = new ArrayList<String>();
+
+        for (Ingredient ingredient : ingredientList) {
+            ingredientNameList.add(ingredient.getName());
+        }
+        return ingredientNameList;    }
 }
